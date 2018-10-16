@@ -1,18 +1,37 @@
+```css
+html,
+body {
+  background-color: aquamarine;
+}
 ```
-<h1>Do you like cats?</h1>
+
+```html
+https://yesno.wtf/api
+```
+
+```html
+<h1>Ask me the future!</h1>
+
 <input type="text"
-       (input)="checkAnswer($event.target.value)"><br><br>
-
-<img *ngIf="showCat"
-     src="https://thecatapi.com/api/images/get?format=src&type=gif&results_per_page">
-<img *ngIf="!showCat"
-     src="https://api.thedogapi.com/v1/images/search?format=src&mime_types=image/gif">
+       (keyup.enter)="ask()">
+<br><br>
+<img *ngIf="(data$ | async)?.image as gif"
+     [src]="gif">
 ```
 
+```css
+input {
+  width: 80vw;
+}
 ```
- showCat: boolean;
 
-  checkAnswer(answer: string) {
-    this.showCat = answer === 'yes';
+```typescript
+apiUrl = 'https://yesno.wtf/api';
+  data$;
+
+  constructor(private http: HttpClient) {}
+
+  ask() {
+    this.data$ = this.http.get(this.apiUrl);
   }
 ```
