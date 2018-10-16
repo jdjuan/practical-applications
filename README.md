@@ -7,26 +7,16 @@
 <img src="https://www.ngcolombia.com/cat6.gif">
 ```
 
----
-
 `https://thecatapi.com/api/images/get?format=src&type=gif`
-
----
 
 `https://thecatapi.com/api/images/get?format=src&type=gif&results_per_page=1`
 
----
+`catUrl = 'https://thecatapi.com/api/images/get?format=src&type=gif&results_per_page=1';`
 
-```html
-<button (click)="change()">Change Cat</button><br><br>
-<img [src]="catUrl">
-```
+`<img [src]="catUrl">`
 
-```typescript
-baseUrl = 'https://thecatapi.com/api/images/get?format=src&type=gif&results_per_page=';
-  catUrl = 'https://thecatapi.com/api/images/get?format=src&type=gif&results_per_page=1';
+`<button (click)="change()">Change Cat</button><br><br>`
 
-  change() {
-    this.catUrl = this.baseUrl + Math.round(Math.random() * 100);
-  }
-```
+`baseUrl = 'https://thecatapi.com/api/images/get?format=src&type=gif&results_per_page=';`
+
+`change() { this.catUrl = this.baseUrl + Math.round(Math.random() * 100);}`
