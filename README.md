@@ -1,4 +1,4 @@
-```
+```html
 <h1>Do you like cats?</h1>
 <input type="text"
        (input)="checkAnswer($event.target.value)"><br><br>
@@ -9,7 +9,7 @@
      src="https://api.thedogapi.com/v1/images/search?format=src&mime_types=image/gif">
 ```
 
-```
+```typescript
  showCat: boolean;
 
   checkAnswer(answer: string) {
