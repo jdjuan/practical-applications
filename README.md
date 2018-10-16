@@ -1,32 +1,18 @@
 ```
-<img src="https://www.ngcolombia.com/cat.jpg">
-<img src="https://www.ngcolombia.com/cat2.gif">
-<img src="https://www.ngcolombia.com/cat3.gif">
-<img src="https://www.ngcolombia.com/cat4.gif">
-<img src="https://www.ngcolombia.com/cat5.gif">
-<img src="https://www.ngcolombia.com/cat6.gif">
-```
+<h1>Do you like cats?</h1>
+<input type="text"
+       (input)="checkAnswer($event.target.value)"><br><br>
 
----
-
-`https://thecatapi.com/api/images/get?format=src&type=gif`
-
----
-
-`https://thecatapi.com/api/images/get?format=src&type=gif&results_per_page=1`
-
----
-
-```
-<button (click)="change()">Change Cat</button><br><br>
-<img [src]="catUrl">
+<img *ngIf="showCat"
+     src="https://thecatapi.com/api/images/get?format=src&type=gif&results_per_page">
+<img *ngIf="!showCat"
+     src="https://api.thedogapi.com/v1/images/search?format=src&mime_types=image/gif">
 ```
 
 ```
-baseUrl = 'https://thecatapi.com/api/images/get?format=src&type=gif&results_per_page=';
-  catUrl = 'https://thecatapi.com/api/images/get?format=src&type=gif&results_per_page=1';
+ showCat: boolean;
 
-  change() {
-    this.catUrl = this.baseUrl + Math.round(Math.random() * 100);
+  checkAnswer(answer: string) {
+    this.showCat = answer === 'yes';
   }
 ```

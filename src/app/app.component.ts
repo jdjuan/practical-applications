@@ -6,10 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  baseUrl = 'https://thecatapi.com/api/images/get?format=src&type=gif&results_per_page=';
-  catUrl = 'https://thecatapi.com/api/images/get?format=src&type=gif&results_per_page=1';
+  showCat: boolean;
 
-  change() {
-    this.catUrl = this.baseUrl + Math.round(Math.random() * 100);
+  checkAnswer(answer: string) {
+    this.showCat = answer === 'yes';
   }
 }
