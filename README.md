@@ -1,18 +1,15 @@
-```html
-<h1>Do you like cats?</h1>
-<input type="text"
-       (input)="checkAnswer($event.target.value)"><br><br>
+`<h1>Do you like cats?</h1>`
 
-<img *ngIf="showCat"
-     src="https://thecatapi.com/api/images/get?format=src&type=gif&results_per_page">
-<img *ngIf="!showCat"
-     src="https://api.thedogapi.com/v1/images/search?format=src&mime_types=image/gif">
-```
+`<img src="https://thecatapi.com/api/images/get?format=src&type=gif&results_per_page">`
 
-```typescript
- showCat: boolean;
+`<img src="https://api.thedogapi.com/v1/images/search?format=src&mime_types=image/gif">`
 
-  checkAnswer(answer: string) {
-    this.showCat = answer === 'yes';
-  }
-```
+`showCat: boolean = false;`
+
+`*ngIf="showCat"`
+
+`*ngIf="!showCat"`
+
+`<input type="text" (input)="checkAnswer($event.target.value)"><br><br>`
+
+`checkAnswer(answer: string) { this.showCat = answer === 'yes'; }`
