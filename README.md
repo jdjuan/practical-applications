@@ -1,37 +1,27 @@
-```css
-html,
-body {
-  background-color: aquamarine;
-}
-```
+`https://yesno.wtf/api`
 
-```html
-https://yesno.wtf/api
-```
+`html, body { background-color: aquamarine; }`
 
-```html
-<h1>Ask me the future!</h1>
+`<h1>Ask me the future!</h1>`
 
-<input type="text"
-       (keyup.enter)="ask()">
-<br><br>
-<img *ngIf="(data$ | async)?.image as gif"
-     [src]="gif">
-```
+`<input type="text" (keyup.enter)="ask()"> <br><br>`
 
-```css
-input {
-  width: 80vw;
-}
-```
+`input { width: 80vw; }`
 
-```typescript
+`ask() { }`
+
 apiUrl = 'https://yesno.wtf/api';
-  data$;
 
-  constructor(private http: HttpClient) {}
+`data$;`
 
-  ask() {
-    this.data$ = this.http.get(this.apiUrl);
-  }
-```
+`import { HttpClientModule } from '@angular/common/http';`
+
+`constructor(private http: HttpClient) {}`
+
+`ask() { this.data$ = this.http.get(this.apiUrl); }`
+
+`<pre>{{ data$ | async | json }}</pre>`
+
+`<img [src]="(data$ | async).image">`
+
+`<img *ngIf="(data$ | async)?.image as gif" [src]="gif">`
